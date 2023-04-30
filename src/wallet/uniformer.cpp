@@ -42,7 +42,7 @@ static uniformer::Result PreconditionChecks(interfaces::Chain::Lock& locked_chai
 
     // freeze tx
     auto txAction = wtx.GetTxAction();
-    if (txAction != CWalletTx::TX_BINDPLOTTER && txAction != CWalletTx::TX_POINT) {
+    if (txAction != CWalletTx::TX_BINDPLOTTER && txAction != CWalletTx::TX_POINT && txAction != CWalletTx::TX_STAKING) {
         errors.push_back("Transaction can't unfreeze");
         return uniformer::Result::INVALID_PARAMETER;
     }
